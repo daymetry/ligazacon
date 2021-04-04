@@ -35,7 +35,7 @@ export class SliderComponent implements OnInit {
   // tslint:disable-next-line:typedef
   ngOnInit() {
     this.m_NewsService.getList().then(data => {
-      this.sliders = data.slice(0, 5);
+      this.sliders = (data ? data.slice(0, 5) : []);
     });
   }
 }

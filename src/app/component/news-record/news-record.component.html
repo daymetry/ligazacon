@@ -1,9 +1,9 @@
 <div class="row news-record">
   <div class="col-md-8 card-record">
-      <p-card header="{{item.name}}" subheader="{{item.category}}"
+      <p-card header="{{item.title}}" subheader="{{item.tag}}"
               [style]="{width: '100%'}" styleClass="p-card-shadow">
         <ng-template pTemplate="header">
-          <img alt="Card" src="assets/img/{{item.image}}">
+          <img alt="Card" src="{{(item.imageSmall ? item.imageSmall : 'assets/img/no-img.jpg')}}">
         </ng-template>
         <p [innerHTML]="item.description"></p>
         <button pButton class="p-button-raised p-button-text p-ripple p-button p-component"

@@ -13,26 +13,26 @@
         <ng-template let-item pTemplate="item" let-i="index">
           <div class="news-grid-container">
             <div class="div1">
-              <img src="assets/img/{{item.image || 'no-img.jpg' }}">
+              <img src="{{(item.imageSmall ? item.imageSmall : 'assets/img/no-img.jpg')}}">
             </div>
             <div class="div2">
-              <h6 class="p-mb-2 p-text-bold" [innerHTML]="item.name"></h6>
-              <i class="pi pi-tag i-cat product-category-icon p-1" *ngIf="!!item.category"></i>
-              <span class="product-category i-cat" [innerHTML]="item.category"></span>
-              <p class="product-category p-t-13 c-t-card" [innerHTML]="item.time"></p>
+              <h6 class="p-mb-2 p-text-bold" [innerHTML]="item.title"></h6>
+              <i class="pi pi-tag i-cat product-category-icon p-1" *ngIf="!!item.tag"></i>
+              <span class="product-category i-cat" [innerHTML]="item.tag"></span>
+              <p class="product-category p-t-13 c-t-card">{{ item.date | date:'DD/MM/YY HH:mm'}}</p>
             </div>
             <div class="div3">
-              <button [routerLink]="'news/' + item.id" pButton type="button"
+              <button [routerLink]="'news/' + item.ID" pButton type="button"
                                       *ngIf="!item.virtual"
                                       label="Запис" badge="8" icon="pi pi-file-o"
                                       class="p-button-raised p-button-text p-ripple p-button p-component button-cust"></button>
-              <button (click)="showDesc(item.id)" pButton type="button"
+              <button (click)="showDesc(item.ID)" pButton type="button"
                       label="Опис" icon="pi pi-angle-double-down"
                       class="p-button-raised p-button-plain p-button-text p-ripple p-button p-component button-cust"
                       badge="8" badgeClass="p-badge-info"></button>
             </div>
           </div>
-          <div class="item-desc" id="{{item.id}}" [innerHTML]="item.description"></div>
+          <div class="item-desc" id="{{item.ID}}" [innerHTML]="item.description"></div>
         </ng-template>
       </p-virtualScroller>
     </div>

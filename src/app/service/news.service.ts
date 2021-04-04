@@ -14,7 +14,7 @@ export class NewsService {
   getList() {
     return this.http.get<any>('assets/news.json')
       .toPromise()
-      .then(res => <News[]> res.data)
+      // .then(res => <News[]> res.data)
       .then(data => { return data; });
   }
 
@@ -22,9 +22,9 @@ export class NewsService {
   getRecord(id: any) {
     return this.http.get<any>('assets/news.json')
       .toPromise()
-      .then(res => <News[]> res.data)
+      // .then(res => <News[]> res.data)
       .then(data => {
-        const record = data.filter((item) => item.id === id);
+        const record = data.filter((item: { ID: any; }) => item.ID === id);
         return record[0] || {}; });
   }
 

@@ -48,13 +48,16 @@ export class NewsComponent implements OnInit {
   ngOnInit() {
     this.m_NewsService.getList()
       .then((data) => {
+        if (this.items && this.items.tags && this.items.tags[0]) {
+          this.items.tag = this.items.tags[0];
+        }
         this.items = data;
     });
   }
 
   // tslint:disable-next-line:typedef
   onSubmit() {
-    this.profileForm.value.id = this.m_NewsService.generateId();
+    this.profileForm.value.ID = this.m_NewsService.generateId();
     this.profileForm.value.virtual = true;
     this.items = [this.profileForm.value, ...this.items];
     this.profileForm.reset();

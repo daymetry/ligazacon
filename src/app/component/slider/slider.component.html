@@ -5,10 +5,10 @@
     <div class="product-item">
       <div class="product-item-content">
         <div class="p-mb-3">
-          <img [routerLink]="'news/' + slide.id" src="assets/img/{{slide.image}}" [alt]="slide.name" class="product-image" />
+          <img [routerLink]="'news/' + slide.ID" src="{{(slide.imageSmall ? slide.imageSmall : 'assets/img/no-img.jpg')}}" [alt]="slide.title" class="product-image" />
         </div>
         <div>
-          <h6 [routerLink]="'news/' + slide.id" class="p-mb-1 def-col">{{slide.name}}</h6>
+          <h6 [routerLink]="'news/' + slide.ID" class="p-mb-1 def-col">{{slide.title}}</h6>
         </div>
       </div>
     </div>

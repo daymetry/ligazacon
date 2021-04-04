@@ -25,6 +25,12 @@ export class NewsRecordComponent implements OnInit {
   ngOnInit(): void {
     this.sub = this.m_rote.params.subscribe(params => {
       this.m_NewsService.getRecord(params.id).then((item) => {
+        this.item.tag = '';
+        // @ts-ignore
+        if (item && item.tags && item.tags[0]) {
+          // @ts-ignore
+          this.item.tag = item.tags[0];
+        }
         this.item = item;
       });
     });
