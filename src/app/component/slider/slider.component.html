@@ -1,0 +1,16 @@
+<p-carousel [value]="sliders" styleClass="custom-carousel p-t-100"
+            [numVisible]="3" [numScroll]="1" [circular]="true"
+            [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+  <ng-template let-slide pTemplate="item">
+    <div class="product-item">
+      <div class="product-item-content">
+        <div class="p-mb-3">
+          <img [routerLink]="'news/' + slide.id" src="assets/img/{{slide.image}}" [alt]="slide.name" class="product-image" />
+        </div>
+        <div>
+          <h6 [routerLink]="'news/' + slide.id" class="p-mb-1 def-col">{{slide.name}}</h6>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

@@ -1,0 +1,44 @@
+<div class="row news-record">
+  <div class="col-md-8 card-record">
+      <p-card header="{{item.name}}" subheader="{{item.category}}"
+              [style]="{width: '100%'}" styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+          <img alt="Card" src="assets/img/{{item.image}}">
+        </ng-template>
+        <p [innerHTML]="item.description"></p>
+        <button pButton class="p-button-raised p-button-text p-ripple p-button p-component"
+                  [routerLink]="'/'" label="Add news" icon="pi pi-arrow-left"></button>
+      </p-card>
+  </div>
+  <div class="col-md-4">
+    <p-card
+      header="Чи може роботодавець змусити працівника написати заяву на звільнення — позиція Держпраці"
+      subheader="ЗАРПЛАТА ТА КАДРИ"
+      styleClass="p-card-shadow">
+      <ng-template pTemplate="header">
+        <img alt="Card" src="assets/img/4.png">
+      </ng-template>
+      <p>Примус працівника до звільнення з роботи є протизаконним, оскільки Конституція України гарантує кожному громадянинові захист від незаконного звільнення (ч. 6 ст. 43). Ця гарантія забезпечується шляхом закріплення цілої низки вимог до порядку припинення трудового договору, інформують у Головному управлінні Держпраці у Дніпропетровській області.</p>
+    </p-card>
+
+    <p-card
+      header="Допомогу на поховання із 1 квітня виплачують тільки на банківський рахунок"
+      subheader="ПЕНСІЇ ТА СОЦЗАБЕЗПЕЧЕННЯ"
+      styleClass="p-card-shadow">
+      <ng-template pTemplate="header">
+        <img alt="Card" src="assets/img/5.png">
+      </ng-template>
+      <p>ГУ ПФУ в Миколаївській області повідомляє, що із 01.04.2021 року змінено механізм виплати, зокрема, допомоги на поховання і сум пенсій, грошової допомоги, недоотриманих у зв'язку із смертю одержувача. Тепер їх зараховують на поточні рахунки осіб, які мають право на отримання таких виплат, в уповноважених банках.</p>
+    </p-card>
+
+    <p-card
+      header="Як подати заяву про взяття на облік за неосновним місцем обліку — алгоритм від ДПС"
+      subheader="АДМІНІСТРУВАННЯ ПОДАТКІВ"
+      styleClass="p-card-shadow">
+      <ng-template pTemplate="header">
+        <img alt="Card" src="assets/img/6.jpeg">
+      </ng-template>
+      <p>В ГУ ДПС у Закарпатській області нагадали порядок взяття на облік за неосновним місцем обліку платників податків. Керуватися треба розділом VII Порядку обліку платників податків і зборів, затвердженого наказом Мінфіну від 09.12.2011 р. № 1588.</p>
+    </p-card>
+  </div>
+</div>

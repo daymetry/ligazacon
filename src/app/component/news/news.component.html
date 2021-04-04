@@ -1,0 +1,104 @@
+<div class="row news-record">
+    <div class="col-md-8">
+      <p-virtualScroller [value]="items" scrollHeight="2500px" styleClass="item item-table">
+        <ng-template pTemplate="header">
+          <div class="p-d-flex p-ai-center p-jc-between virtualScroller-header">
+            Список новин
+            <button pButton type="button" label="Добавити новину"
+                    icon="pi pi-plus" class="p-button-raised p-button-success p-button-text p-ripple p-button p-component"
+                    data-toggle="modal" data-target="#newsModel"
+                    badge="8" badgeClass="p-badge-info"></button>
+          </div>
+        </ng-template>
+        <ng-template let-item pTemplate="item" let-i="index">
+          <div class="news-grid-container">
+            <div class="div1">
+              <img src="assets/img/{{item.image || 'no-img.jpg' }}">
+            </div>
+            <div class="div2">
+              <h6 class="p-mb-2 p-text-bold" [innerHTML]="item.name"></h6>
+              <i class="pi pi-tag i-cat product-category-icon p-1" *ngIf="!!item.category"></i>
+              <span class="product-category i-cat" [innerHTML]="item.category"></span>
+              <p class="product-category p-t-13 c-t-card" [innerHTML]="item.time"></p>
+            </div>
+            <div class="div3">
+              <button [routerLink]="'news/' + item.id" pButton type="button"
+                                      *ngIf="!item.virtual"
+                                      label="Запис" badge="8" icon="pi pi-file-o"
+                                      class="p-button-raised p-button-text p-ripple p-button p-component button-cust"></button>
+              <button (click)="showDesc(item.id)" pButton type="button"
+                      label="Опис" icon="pi pi-angle-double-down"
+                      class="p-button-raised p-button-plain p-button-text p-ripple p-button p-component button-cust"
+                      badge="8" badgeClass="p-badge-info"></button>
+            </div>
+          </div>
+          <div class="item-desc" id="{{item.id}}" [innerHTML]="item.description"></div>
+        </ng-template>
+      </p-virtualScroller>
+    </div>
+    <div class="col-md-4 m-sm-t-60">
+      <p-card
+        header="Чи може роботодавець змусити працівника написати заяву на звільнення — позиція Держпраці"
+        subheader="ЗАРПЛАТА ТА КАДРИ"
+        styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+          <img alt="Card" src="assets/img/4.png">
+        </ng-template>
+        <p>Примус працівника до звільнення з роботи є протизаконним, оскільки Конституція України гарантує кожному громадянинові захист від незаконного звільнення (ч. 6 ст. 43). Ця гарантія забезпечується шляхом закріплення цілої низки вимог до порядку припинення трудового договору, інформують у Головному управлінні Держпраці у Дніпропетровській області.</p>
+      </p-card>
+
+      <p-card
+        header="Допомогу на поховання із 1 квітня виплачують тільки на банківський рахунок"
+        subheader="ПЕНСІЇ ТА СОЦЗАБЕЗПЕЧЕННЯ"
+        styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+          <img alt="Card" src="assets/img/5.png">
+        </ng-template>
+        <p>ГУ ПФУ в Миколаївській області повідомляє, що із 01.04.2021 року змінено механізм виплати, зокрема, допомоги на поховання і сум пенсій, грошової допомоги, недоотриманих у зв'язку із смертю одержувача. Тепер їх зараховують на поточні рахунки осіб, які мають право на отримання таких виплат, в уповноважених банках.</p>
+      </p-card>
+
+      <p-card
+        header="Як подати заяву про взяття на облік за неосновним місцем обліку — алгоритм від ДПС"
+        subheader="АДМІНІСТРУВАННЯ ПОДАТКІВ"
+        styleClass="p-card-shadow">
+        <ng-template pTemplate="header">
+          <img alt="Card" src="assets/img/6.jpeg">
+        </ng-template>
+        <p>В ГУ ДПС у Закарпатській області нагадали порядок взяття на облік за неосновним місцем обліку платників податків. Керуватися треба розділом VII Порядку обліку платників податків і зборів, затвердженого наказом Мінфіну від 09.12.2011 р. № 1588.</p>
+      </p-card>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="newsModel" tabindex="-1"
+     role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title def-col" id="exampleModalLabel">Добавити новину</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <label class="w-100">
+            <input type="text" placeholder="Назва" formControlName="name" required class="p-inputtext p-component w-100">
+          </label>
+          <label class="w-100">
+            <input type="text" placeholder="Опис" formControlName="description" required class="p-inputtext p-component w-100">
+          </label>
+          <div class="modal-footer">
+            <button pButton type="button" label="Закрити" icon="pi pi-times"
+                    data-dismiss="modal"
+                    class="p-button-raised p-button-text p-button-plain p-ripple p-button p-component"></button>
+            <button pButton type="submit" [disabled]="!profileForm.valid"
+                    class="p-button-raised p-button-text p-ripple p-button p-component"
+                    label="Додайти новину" icon="pi pi-check"></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

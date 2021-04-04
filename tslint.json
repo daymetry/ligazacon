@@ -4,6 +4,15 @@
     "codelyzer"
   ],
   "rules": {
+    "strictPropertyInitialization": false,
+    "variable-name": {
+      "options": [
+        "ban-keywords",
+        "check-format",
+        "allow-leading-underscore",
+        "allow-pascal-case"
+      ]
+    },
     "align": {
       "options": [
         "parameters",
